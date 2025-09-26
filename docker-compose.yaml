@@ -10,7 +10,7 @@ services:
       - DB_HOST=db
       - DB_USER=appuser
       - DB_PASSWORD=appsecret
-      - DB_NAME=appdb
+      - DB_NAME=classicmodels
   frontend:
     build: ./frontend
     ports:
@@ -19,7 +19,7 @@ services:
     image: mysql:8
     environment:
       MYSQL_ROOT_PASSWORD: supersecret
-      MYSQL_DATABASE: appdb
+      MYSQL_DATABASE: classicmodels
       MYSQL_USER: appuser
       MYSQL_PASSWORD: appsecret
     ports:
