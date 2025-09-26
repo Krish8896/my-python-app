@@ -8,8 +8,8 @@ services:
       - db
     environment:
       - DB_HOST=db
-      - DB_USER=appuser
-      - DB_PASSWORD=appsecret
+      - DB_USER=root-1
+      - DB_PASSWORD=Krishna8kichu@
       - DB_NAME=classicmodels
   frontend:
     build: ./frontend
@@ -18,10 +18,10 @@ services:
   db:
     image: mysql:8
     environment:
-      MYSQL_ROOT_PASSWORD: supersecret
+      MYSQL_ROOT_PASSWORD: Krishna8kichu@
       MYSQL_DATABASE: classicmodels
-      MYSQL_USER: appuser
-      MYSQL_PASSWORD: appsecret
+      MYSQL_USER: root-1
+      MYSQL_PASSWORD: Krishna8kichu@
     ports:
       - "3306:3306"
     volumes:

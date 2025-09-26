@@ -9,7 +9,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/your-org/your-repo.git'
             }
         }
-        stage('Build') {
+       /* stage('Build') {
             steps {
                 dir("${DOCKER_COMPOSE_DIR}") {
                     sh 'docker-compose build'
@@ -46,5 +46,6 @@ pipeline {
         failure {
             echo 'Pipeline failed.'
         }
-    }
+    } */
+} 
 }
