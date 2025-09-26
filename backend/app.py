@@ -9,9 +9,9 @@ CORS(app)
 # MySQL configuration
 db = mysql.connector.connect(
     host="localhost",
-    user="root",
-    password="yourpassword",
-    database="yourdb"
+    user="root-1",
+    password="Krishna8kichu@",
+    database="my_db"
 )
 
 @app.route('/api/users', methods=['GET'])
