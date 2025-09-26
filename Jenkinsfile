@@ -3,8 +3,8 @@ pipeline {
     environment {
         DOCKER_COMPOSE_DIR = "${WORKSPACE}" // adjust if your compose file is in a subdir
     }
-  /*  stages {
-        stage('Checkout') {
+    stages {
+        /* stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/your-org/your-repo.git'
             }
