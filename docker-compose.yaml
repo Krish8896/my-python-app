@@ -12,7 +12,7 @@ services:
       - DB_PASSWORD=Krishna8kichu@
       - DB_NAME=my_db
   frontend:
-    build: ./frontend
+    build: ./frontend/frontends
     ports:
       - "3000:3000"   # Or "80:80" if serving with Nginx
   db:
