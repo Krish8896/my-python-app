@@ -10,7 +10,7 @@ metrics = PrometheusMetrics(app)
 
 # MySQL configuration
 db = mysql.connector.connect(
-    host="localhost",
+    host="db",
     user="root-1",
     password="Krishna8kichu@",
     database="my_db"
@@ -35,4 +35,4 @@ def add_user():
     return jsonify({"status": "User added"}), 201
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
