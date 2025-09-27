@@ -2,9 +2,11 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import mysql.connector
+from prometheus_flask_exporter import PrometheusMetrics
 
 app = Flask(__name__)
 CORS(app)
+metrics = PrometheusMetrics(app)
 
 # MySQL configuration
 db = mysql.connector.connect(

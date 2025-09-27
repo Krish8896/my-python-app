@@ -44,7 +44,7 @@ pipeline {
                 }
             }
         }
-     /*   stage('Deploy') {
+        stage('Deploy') {
             steps {
                 dir("${DOCKER_COMPOSE_DIR}") {
                     sh 'docker-compose up -d'
@@ -52,8 +52,7 @@ pipeline {
                 echo 'Deployment complete.'
             }
         }
-    }
-    post {
+  /*  post {
         always {
             echo 'Pipeline finished.'
         }
