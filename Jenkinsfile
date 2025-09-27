@@ -22,17 +22,17 @@ pipeline {
                 }
             }
         }
-     /*   stage('SonarQube analysis') {
-        environment {
-            scannerHome = tool 'org-sonarqube-scanner'
-        }
-            steps {
-                withSonarQubeEnv('org-sonarqube-server') { // If you have configured more than one global server connection, you can specify its name }
-                sh "${scannerHome}/bin/sonar-scanner"
+        stage('SonarQube Analysis') {
+            environment {
+                scannerHome = tool 'python-sonar-scanner'
             }
-            }
+                steps {
+                        withSonarQubeEnv('python-sonar-scanner') {
+                        sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
         }
-        stage('Deploy') {
+     /*   stage('Deploy') {
             steps {
                 dir("${DOCKER_COMPOSE_DIR}") {
                     sh 'docker-compose up -d'
