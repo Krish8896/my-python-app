@@ -22,7 +22,7 @@ pipeline {
                 }
             }
         }
-        stage('SonarQube analysis') {
+     /*   stage('SonarQube analysis') {
         environment {
             scannerHome = tool 'org-sonarqube-scanner'
         }
@@ -32,7 +32,7 @@ pipeline {
             }
             }
         }
-     /*   stage('Deploy') {
+        stage('Deploy') {
             steps {
                 dir("${DOCKER_COMPOSE_DIR}") {
                     sh 'docker-compose up -d'
