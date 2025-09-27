@@ -52,7 +52,7 @@ pipeline {
                 echo 'Deployment complete.'
             }
         }
-}
+    }
     post {
         always {
             echo 'Pipeline finished.'
