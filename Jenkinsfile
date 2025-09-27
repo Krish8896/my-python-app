@@ -52,7 +52,7 @@ pipeline {
                 echo 'Deployment complete.'
             }
         }
-  /*  post {
+    post {
         always {
             echo 'Pipeline finished.'
         }
@@ -62,6 +62,6 @@ pipeline {
         failure {
             echo 'Pipeline failed.'
         }
-    } */
+    } 
 }
 } 
