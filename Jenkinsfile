@@ -11,7 +11,7 @@ pipeline {
                 }
             }
         }
-    /*    stage('Test') {
+        stage('Test') {
             steps {
                 // Example: run backend tests
                 dir("${DOCKER_COMPOSE_DIR}/backend") {
@@ -22,7 +22,7 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
+     /*   stage('Deploy') {
             steps {
                 dir("${DOCKER_COMPOSE_DIR}") {
                     sh 'docker-compose up -d'
