@@ -28,7 +28,7 @@ pipeline {
             }
                 steps {
                         withSonarQubeEnv('python-sonar-scanner') {
-                        sh "${scannerHome}/bin/sonar-scanner"
+                        sh "${scannerHome}/bin/python-sonar-scanner"
                     }
                 }
         }
