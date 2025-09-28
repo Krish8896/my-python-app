@@ -46,7 +46,7 @@ pipeline {
         }
         stage('Publish to Artifactory') {
             environment {
-                ARTIFACTORY_URL = 'helloworlds.jfrog.io/'
+                ARTIFACTORY_URL = 'helloworlds.jfrog.io'
                 ARTIFACTORY_REPO = 'docker-python-docker-local'
                 ARTIFACTORY_CREDENTIALS = credentials('artifact-cred')
                 IMAGE_NAME = 'python-app-backend'
