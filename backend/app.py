@@ -11,7 +11,7 @@ metrics = PrometheusMetrics(app)
 # MySQL configuration
 db = mysql.connector.connect(
     host="db",
-    user="root-1",
+    user="root1",
     password="Krishna8kichu@",
     database="my_db"
 )

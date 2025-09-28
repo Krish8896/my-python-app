@@ -8,7 +8,7 @@ services:
       - db
     environment:
       - DB_HOST=db
-      - DB_USER=root-1
+      - DB_USER=root1
       - DB_PASSWORD=Krishna8kichu@
       - DB_NAME=my_db
   frontend:
@@ -20,7 +20,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: Krishna8kichu@
       MYSQL_DATABASE: my_db
-      MYSQL_USER: root-1
+      MYSQL_USER: root1
       MYSQL_PASSWORD: Krishna8kichu@
     ports:
       - "3307:3306"
@@ -29,7 +29,7 @@ services:
   mysqldb_exporter:
     image: prom/mysqld-exporter
     environment:
-      DATA_SOURCE_NAME: "root-1:Krishna8kichu%40@(db:3306)/"
+      DATA_SOURCE_NAME: "root1:Krishna8kichu%40@(db:3306)/"
     ports:
       - "9104:9104"
     depends_on:

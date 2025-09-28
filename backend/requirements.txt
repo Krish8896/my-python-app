@@ -2,3 +2,4 @@ flask
 flask-mysql
 flask-cors
 mysql-connector-python
+prometheus-flask-exporter
