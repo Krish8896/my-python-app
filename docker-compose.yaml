@@ -29,7 +29,7 @@ services:
   mysqldb_exporter:
     image: prom/mysqld-exporter
     environment:
-      DATA_SOURCE_NAME: "root-1:Krishna8kichu@(db:3306)/"
+      DATA_SOURCE_NAME: "root-1:Krishna8kichu%40@(db:3306)/"
     ports:
       - "9104:9104"
     depends_on:
