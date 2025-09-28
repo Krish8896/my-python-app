@@ -50,7 +50,7 @@ pipeline {
                 ARTIFACTORY_REPO = 'docker-python-docker-local'
                 ARTIFACTORY_CREDENTIALS = credentials('artifact-cred')
                 IMAGE_NAME = 'python-app-backend'
-                IMAGE_TAG = "${BUILD_NUMBER}"
+                IMAGE_TAG = "python-flask"
             }
             steps {
                 script {
