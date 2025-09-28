@@ -44,6 +44,30 @@ pipeline {
                 }
             }
         }
+        stage('Publish to Artifactory') {
+            environment {
+                ARTIFACTORY_URL = 'https://helloworlds.jfrog.io/'
+                ARTIFACTORY_REPO = 'docker-python-docker-local'
+                ARTIFACTORY_CREDENTIALS = credentials('artifact-cred')
+                IMAGE_NAME = 'app.py'
+                IMAGE_TAG = "${BUILD_NUMBER}"
+            }
+            steps {
+                script {
+                def ARTIFACTORY_IMAGE = "${ARTIFACTORY_URL}/${ARTIFACTORY_REPO}/${IMAGE_NAME}:${IMAGE_TAG}"
+                sh """
+                    echo ${ARTIFACTORY_CREDENTIALS_PSW} | docker login ${ARTIFACTORY_URL} -u ${ARTIFACTORY_CREDENTIALS_USR} --password-stdin
+                    docker tag ${IMAGE_NAME}:latest ${ARTIFACTORY_IMAGE}
+                    docker push ${ARTIFACTORY_IMAGE}
+                """
+                }
+            }
+            post {
+                always {
+                sh 'docker logout ${ARTIFACTORY_URL}'
+                }
+            }
+        }
         stage('Deploy') {
             steps {
                 dir("${DOCKER_COMPOSE_DIR}") {
