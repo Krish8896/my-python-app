@@ -77,7 +77,7 @@ pipeline {
             }
         }
     }
-   /* post {
+    post {
         always {
             echo 'Pipeline finished.'
         }
@@ -87,5 +87,5 @@ pipeline {
         failure {
             echo 'Pipeline failed.'
         }
-    } */
+    }
 }
