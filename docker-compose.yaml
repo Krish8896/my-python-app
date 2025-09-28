@@ -11,6 +11,7 @@ services:
       - DB_USER=root1
       - DB_PASSWORD=Krishna8kichu
       - DB_NAME=my_db
+    command: ["sh", "-c", "wait-for-it db:3306 -- python app.py"]
   frontend:
     build: ./frontend/frontends
     ports:
@@ -29,7 +30,7 @@ services:
   mysqldb_exporter:
     image: prom/mysqld-exporter
     environment:
-      DATA_SOURCE_NAME: "root1:Krishna8kichu@tcp(db:3306)/"
+      DATA_SOURCE_NAME: "exporter:exporterpass@tcp(db:3306)/"
     ports:
       - "9104:9104"
     depends_on:
