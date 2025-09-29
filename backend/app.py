@@ -13,7 +13,8 @@ db = mysql.connector.connect(
     host="db",
     user="root1",
     password="Krishna8kichu",
-    database="my_db"
+    database="my_db",
+    port="3306"
 )
 
 @app.route('/api/users', methods=['GET'])
