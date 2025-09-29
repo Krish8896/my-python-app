@@ -30,7 +30,7 @@ services:
   mysqldb_exporter:
     image: prom/mysqld-exporter
     environment:
-      DATA_SOURCE_NAME: "exporter:exporterpass@tcp(db:3306)/"
+      DATA_SOURCE_NAME: "exporter:exporterpass@(db:3306)/"
     ports:
       - "9104:9104"
     depends_on:
