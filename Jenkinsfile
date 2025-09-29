@@ -13,7 +13,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                dir("${DOCKER_COMPOSE_DIR}") {
+                dir("${DOCKER_COMPOSE_DIR}/backend") {
                     sh 'docker-compose up -d db'
                     // Wait for DB to be healthy instead of static sleep
                     sh '''
