@@ -16,7 +16,7 @@ pipeline {
                 // Example: run backend tests
                 dir("${DOCKER_COMPOSE_DIR}/backend") {
                     sh 'docker-compose up -d db'
-                    sh 'sleep 20' // wait for DB to be ready
+                    sh 'sleep 60' // wait for DB to be ready
                     sh 'docker-compose run --rm backend python -m unittest discover'
                     sh 'docker-compose down'
                 }
