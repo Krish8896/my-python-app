@@ -13,10 +13,19 @@ pipeline {
         }
         stage('Test') {
             steps {
-                // Example: run backend tests
-                dir("${DOCKER_COMPOSE_DIR}/backend") {
+                dir("${DOCKER_COMPOSE_DIR}") {
                     sh 'docker-compose up -d db'
-                    sh 'sleep 60' // wait for DB to be ready
+                    // Wait for DB to be healthy instead of static sleep
+                    sh '''
+                        echo "Waiting for MySQL to be healthy..."
+                        for i in {1..30}; do
+                          if [ "$(docker inspect -f {{.State.Health.Status}} python-app-db-1)" = "healthy" ]; then
+                            echo "MySQL is healthy!"
+                            break
+                          fi
+                          sleep 2
+                        done
+                    '''
                     sh 'docker-compose run --rm backend python -m unittest discover'
                     sh 'docker-compose down'
                 }
