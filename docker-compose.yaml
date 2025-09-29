@@ -12,7 +12,7 @@ services:
       DB_USER: root1
       DB_PASSWORD: Krishna8kichu
       DB_NAME: my_db
-  #  command: ["sh", "-c", "wait-for-it db:3306 -- python app.py"]
+    command: ["sh", "-c", "wait-for-it db:3306 -- python app.py"]
   frontend:
     build: ./frontend/frontends
     ports:
