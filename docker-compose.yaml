@@ -5,7 +5,8 @@ services:
     ports:
       - "5000:5000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
       - DB_HOST=db
       - DB_USER=root1
@@ -39,7 +40,8 @@ services:
     ports:
       - "9104:9104"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
   prometheus:
     image: prom/prometheus
     volumes:
