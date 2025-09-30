@@ -37,9 +37,8 @@ services:
   mysqldb_exporter:
     image: prom/mysqld-exporter
     command:
+    - '--mysqld.username=exporter:exporterpass'
     - '--mysqld.address=db:3306'
-    - '--mysqld.username=exporter'
-    - '--mysqld.password=exporterpass'
     - '--web.listen-address=0.0.0.0:9104'
     ports:
       - "9104:9104"
