@@ -34,8 +34,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-  mysqldb_exporter:
-    image: prom/mysqld-exporter
+  mysqld_exporter:
+    image: prom/mysqld-exporter:latest
     environment:
       DATA_SOURCE_NAME: "exporter:exporterpass@(db:3306)/"
     ports:
@@ -44,7 +44,7 @@ services:
       db:
         condition: service_healthy
   prometheus:
-    image: prom/prometheus
+    image: prom/prometheus:latest
     volumes:
       - ./prometheus.yaml:/etc/prometheus/prometheus.yaml:ro    # read-only permissions
     command:
@@ -52,7 +52,7 @@ services:
     ports:
       - "9090:9090"
     depends_on:
-      - mysqldb_exporter
+      - mysqld_exporter
       - backend
   grafana:
     image: grafana/grafana:latest
