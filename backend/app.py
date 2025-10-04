@@ -9,12 +9,13 @@ CORS(app)
 metrics = PrometheusMetrics(app)
 
 # MySQL configuration
+import os
 db = mysql.connector.connect(
-    host="db",
-    user="root1",
-    password="Krishna8kichu",
-    database="my_db",
-    port="3306"
+    host=os.environ.get("DB_HOST", "db"),
+    user=os.environ.get("DB_USER", "root1"),
+    password=os.environ.get("DB_PASSWORD", "Krishna8kichu"),
+    database=os.environ.get("DB_NAME", "my_db"),
+    port=os.environ.get("DB_PORT", "3306")
 )
 
 @app.route('/api/users', methods=['GET'])
