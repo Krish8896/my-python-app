@@ -36,5 +36,8 @@ def add_user():
     db.commit()
     return jsonify({"status": "User added"}), 201
 
+def create_app():
+    return app
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
