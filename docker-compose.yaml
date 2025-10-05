@@ -25,7 +25,7 @@ services:
       MYSQL_USER: root1
       MYSQL_PASSWORD: Krishna8kichu
     ports:
-      - "3307:3306"
+      - "3310:3306"
     volumes:
       - db_data:/var/lib/mysql
       - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
