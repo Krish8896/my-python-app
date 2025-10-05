@@ -9,7 +9,6 @@ CORS(app)
 metrics = PrometheusMetrics(app)
 
 # MySQL configuration
-import os
 db = mysql.connector.connect(
     host ="db",
     user ="root1",
@@ -41,3 +40,4 @@ def create_app():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+    
