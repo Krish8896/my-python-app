@@ -4,4 +4,4 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt && pip install wait-for-it
 COPY . .
 EXPOSE 5000
-CMD ["python", "app.py"]
+ENTRYPOINT ["python", "app.py"]
