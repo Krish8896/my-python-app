@@ -23,7 +23,7 @@ pipeline {
                             echo "MySQL is healthy!"
                             break
                           fi
-                          sleep 2
+                          sleep 20
                         done
                     '''
                     sh 'docker-compose run --rm backend python -m unittest discover'
