@@ -16,7 +16,7 @@ services:
   frontend:
     build: ./frontend/frontends
     ports:
-      - "3010:80"   # Or "80:80" if serving with Nginx
+      - "3000:80"   # Or "80:80" if serving with Nginx
   db:
     image: mysql:8
     environment:
