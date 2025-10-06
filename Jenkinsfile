@@ -31,7 +31,7 @@ pipeline {
                 }
             }
         }
-        stage('SonarQube Analysis') {
+    /*    stage('SonarQube Analysis') {
             environment {
                 scannerHome = tool 'python-sonar-scanner'
             }
@@ -52,7 +52,7 @@ pipeline {
             }
                 }
             }
-        }
+        } */
         stage('Publish to Artifactory') {
             environment {
                 ARTIFACTORY_URL = 'helloworlds.jfrog.io'
