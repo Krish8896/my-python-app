@@ -19,11 +19,11 @@ pipeline {
                     sh '''
                         echo "Waiting for MySQL to be healthy..."
                         for i in {1..30}; do
-                          if [ "$(docker inspect -f {{.State.Health.Status}} python-app-db-1)" = "healthy" ]; then
+                          if [ "$(docker inspect -f {{.State.Health.Status}} my-python-app-db-1)" = "healthy" ]; then
                             echo "MySQL is healthy!"
                             break
                           fi
-                          sleep 20
+                          sleep 2
                         done
                     '''
                     sh 'docker-compose run --rm backend python -m unittest discover'
