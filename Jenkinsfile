@@ -26,7 +26,7 @@ pipeline {
                           sleep 2
                         done
                     '''
-                    sh 'docker-compose run --rm backend python -m unittest discover'
+                    sh 'docker-compose exec backend python -m unittest discover'
                     sh 'docker-compose down'
                 }
             }
