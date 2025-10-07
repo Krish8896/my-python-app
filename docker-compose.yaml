@@ -29,6 +29,8 @@ services:
     volumes:
       - db_data:/var/lib/mysql
       - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - my-python-app-network
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -40,6 +42,8 @@ services:
       - "DATA_SOURCE_NAME=root1:Krishna8kichu@(db:3306)/"
     ports:
       - "9104:9104"
+    networks:
+      - my-python-app-network
     depends_on:
       db:
         condition: service_healthy
@@ -67,3 +71,6 @@ services:
 volumes:
   db_data:
   grafana_data:
+networks:
+  my-python-app-network:
+    driver: bridge
