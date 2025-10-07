@@ -52,7 +52,7 @@ pipeline {
             }
         }
             }
-        } */
+        }
         stage('Publish to Artifactory') {
             environment {
                 ARTIFACTORY_URL = 'helloworlds.jfrog.io'
@@ -76,7 +76,7 @@ pipeline {
                 sh 'docker logout ${ARTIFACTORY_URL}'
                 }
             }
-        }
+        } */
         stage('Deploy') {
             steps {
                 dir("${DOCKER_COMPOSE_DIR}") {
