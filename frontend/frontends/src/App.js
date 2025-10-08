@@ -7,7 +7,7 @@ function App() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const API_URL = "http://51.20.94.67:5000/api/users"; // your Flask backend
+  const API_URL = "http://16.171.233.75:5000/api/users"; // your Flask backend
 
   // Fetch all users
   const fetchUsers = async () => {
