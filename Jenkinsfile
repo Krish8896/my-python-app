@@ -7,7 +7,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir("${DOCKER_COMPOSE_DIR}") {
-                    sh 'docker-compose build --no-cache'
+                    sh 'docker-compose build'
                 }
             }
         }
