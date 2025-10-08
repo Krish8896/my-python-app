@@ -60,7 +60,6 @@ services:
     networks:
       - my-python-app-network
     depends_on:
-    #  - mysqld_exporter
       - backend
   grafana:
     image: grafana/grafana:latest
