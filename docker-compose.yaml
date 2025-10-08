@@ -38,6 +38,17 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+  mysqld_exporter:
+    image: prom/mysqld-exporter:latest
+    environment:
+      DATA_SOURCE_NAME: root1:Krishna8kichu@(db:3306)/
+    ports:
+      - "9104:9104"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - my-python-app-network
   prometheus:
     image: prom/prometheus:latest
     volumes:
