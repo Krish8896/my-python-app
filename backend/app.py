@@ -12,6 +12,10 @@ def create_app():
     CORS(app)
     metrics = PrometheusMetrics(app)
 
+    @app.route('/')
+    def index():
+        return jsonify({"message": "Flask app with Prometheus metrics"})
+
     # MySQL configuration
     db = mysql.connector.connect(
         host=os.getenv("DB_HOST", "db"),
