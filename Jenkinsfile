@@ -41,11 +41,11 @@ pipeline {
                     }
                 }
         }
-     /*   stage("Quality Gate"){
+        stage("Quality Gate"){
             steps {
                 script {
             timeout(time: 15, unit: 'MINUTES') { // Just in case something goes wrong, pipeline will be killed after a timeout
-            def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
+            qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
             if (qg.status != 'OK') {
             error "Pipeline aborted due to quality gate failure: ${qg.status}"
             }
@@ -53,7 +53,7 @@ pipeline {
         }
             }
         }
-        stage('Publish to Artifactory') {
+       /* stage('Publish to Artifactory') {
             environment {
                 ARTIFACTORY_URL = 'helloworlds.jfrog.io'
                 ARTIFACTORY_REPO = 'docker-python-docker-local'
