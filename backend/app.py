@@ -10,7 +10,7 @@ from prometheus_flask_exporter import PrometheusMetrics
 def create_app():
     app = Flask(__name__)
     CORS(app)
-    PrometheusMetrics(app)
+    metrics = PrometheusMetrics(app)
 
     @app.route('/')
     def index():
