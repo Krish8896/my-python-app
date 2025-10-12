@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import mysql.connector
@@ -16,7 +17,7 @@ def create_app():
     db = mysql.connector.connect(
         host="db",
         user="root1",
-        password="Krishna8kichu",
+        password=os.getenv("DB_PASSWORD"),
         database="my_db",
         port=3306
     )

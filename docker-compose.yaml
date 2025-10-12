@@ -10,8 +10,10 @@ services:
     environment:
       DB_HOST: db
       DB_USER: root1
-      DB_PASSWORD: Krishna8kichu
+      DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: my_db
+    env_file:
+      - ./backend/.env
     networks:
       - my-python-app-network
   frontend:
