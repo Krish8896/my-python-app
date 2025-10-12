@@ -77,8 +77,8 @@ function App() {
         <h3>User List</h3>
         <ul>
           {users.length > 0 ? (
-            users.map((u) => (
-              <li key={u.email}>
+            users.map((u, i) => (
+              <li key={i}>
                 {u.name} - {u.email}
               </li>
             ))
