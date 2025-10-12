@@ -3,4 +3,4 @@ flask-mysql
 flask-cors
 mysql-connector-python
 prometheus-flask-exporter
-python-dotenv
+# python-dotenv

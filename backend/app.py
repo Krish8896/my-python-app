@@ -1,7 +1,7 @@
-from dotenv import load_dotenv
-load_dotenv()
+#from dotenv import load_dotenv
+# load_dotenv()
 
-import os
+# import os
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import mysql.connector
@@ -10,15 +10,19 @@ from prometheus_flask_exporter import PrometheusMetrics
 def create_app():
     app = Flask(__name__)
     CORS(app)
-    metrics = PrometheusMetrics(app)
+    PrometheusMetrics(app)
+
+    @app.route('/')
+    def index():
+        return jsonify({"message": "Flask app with Prometheus metrics"})
 
     # MySQL configuration
     db = mysql.connector.connect(
-        host=os.getenv("DB_HOST", "db"),
-        user=os.getenv("DB_USER", "root1"),
-        password=os.getenv("DB_PASSWORD"),
-        database=os.getenv("DB_NAME", "my_db"),
-        port=os.getenv("DB_PORT", "3306")
+        host="db",
+        user="root1",
+        password="Krishna8kichu",
+        database="my_db",
+        port=3306
     )
 
     @app.route('/api/users', methods=['GET'])
