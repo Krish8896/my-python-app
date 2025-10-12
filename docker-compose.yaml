@@ -10,8 +10,11 @@ services:
     environment:
       DB_HOST: db
       DB_USER: root1
-      DB_PASSWORD: Krishna8kichu
+      DB_PASSWORD: ${DB_PASSWORD}
       DB_NAME: my_db
+      DB_PORT: 3306
+    env_file:
+      - ./backend/.env
     networks:
       - my-python-app-network
   frontend:
@@ -21,10 +24,10 @@ services:
   db:
     image: mysql:8
     environment:
-      MYSQL_ROOT_PASSWORD: Krishna8kichu
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-Krishna8kichu}
       MYSQL_DATABASE: my_db
       MYSQL_USER: root1
-      MYSQL_PASSWORD: Krishna8kichu
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-Krishna8kichu}
     ports:
       - "3310:3306"
     volumes:
