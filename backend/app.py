@@ -16,7 +16,6 @@ def create_app():
     db = mysql.connector.connect(
         host="db",
         user="root1",
-        password="Krishna8kichu",
         database="my_db",
         port=3306
     )
