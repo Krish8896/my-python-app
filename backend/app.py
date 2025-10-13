@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import mysql.connector
 from prometheus_flask_exporter import PrometheusMetrics
+import os
 
 def create_app():
     app = Flask(__name__)
@@ -14,10 +15,11 @@ def create_app():
 
     # MySQL configuration
     db = mysql.connector.connect(
-        host="db",
-        user="root1",
-        database="my_db",
-        port=3306
+        host=os.getenv("DB_HOST", "db"),
+        user=os.getenv("DB_USER", "root1"),
+        password=os.getenv("DB_PASSWORD", "Krishna8kichu"),
+        database=os.getenv("DB_NAME", "my_db"),
+        port=int(os.getenv("DB_PORT", 3306))
     )
 
     @app.route('/api/users', methods=['GET'])
