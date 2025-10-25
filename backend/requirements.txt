@@ -3,7 +3,3 @@ flask-mysql
 flask-cors
 mysql-connector-python
 prometheus-flask-exporter
-
-# Add testing dependencies
-pytest
-pytest-cov
