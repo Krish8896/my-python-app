@@ -38,7 +38,7 @@ pipeline {
                     sh 'npm test -- --coverage' 
                 }
                 dir('backend') { 
-                    sh 'pytest --cov=. --cov-report=xml' 
+                    sh 'docker-compose run --rm backend pytest --cov=. --cov-report=xml' 
                 }
             }
         }
