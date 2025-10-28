@@ -32,12 +32,14 @@ pipeline {
             }
         }
         stage('Test') { 
-            dir('frontend/frontends') { 
-                sh 'npm install' 
-                sh 'npm test -- --coverage' 
-            }
-            dir('backend') { 
-                sh 'pytest --cov=. --cov-report=xml' 
+            steps {
+                dir('frontend/frontends') { 
+                    sh 'npm install' 
+                    sh 'npm test -- --coverage' 
+                }
+                dir('backend') { 
+                    sh 'pytest --cov=. --cov-report=xml' 
+                }
             }
         }
         stage('SonarQube Analysis') {
