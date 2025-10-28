@@ -31,7 +31,7 @@ pipeline {
                 }
             }
         }
-        stage('Test') { 
+        stage('frontend and backend Test') { 
             steps {
                 dir('frontend/frontends') { 
                     sh 'npm install' 
