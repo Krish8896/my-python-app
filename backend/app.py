@@ -6,6 +6,11 @@ import os
 
 def create_app():
     app = Flask(__name__)
+    # This is a stateless REST API that only accepts JSON requests.
+    # CSRF protection is intentionally disabled because:
+    # - No browser sessions or cookies are used for authentication.
+    # - CORS is configured to control allowed origins.
+    # - Clients must use token-based or controlled access.
     CORS(app)
     PrometheusMetrics(app)
 
