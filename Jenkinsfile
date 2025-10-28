@@ -64,7 +64,7 @@ pipeline {
         }
             }
         }
-        stage('Publish to Artifactory') {
+     /*   stage('Publish to Artifactory') {
             environment {
                 ARTIFACTORY_URL = 'helloworlds.jfrog.io'
                 ARTIFACTORY_REPO = 'docker-python-docker-local'
