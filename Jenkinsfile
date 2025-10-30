@@ -43,28 +43,28 @@ pipeline {
             }
         }
         stage('SonarQube Analysis') {
-    steps {
-        script {
-            echo "Starting SonarQube analysis..."
-            // Wrap SonarQube execution in a timeout to prevent infinite run
-            timeout(time: 15, unit: 'MINUTES') {
-                withSonarQubeEnv('sonarqube-server1') {
-                    sh '''
-                        # Clean old Sonar cache (optional safety)
-                        rm -rf .scannerwork
+            steps {
+                script {
+                    echo "Starting SonarQube analysis..."
+                    // Wrap SonarQube execution in a timeout to prevent infinite run
+                    timeout(time: 15, unit: 'MINUTES') {
+                        withSonarQubeEnv('sonarqube-server1') {
+                            sh '''
+                                # Clean old Sonar cache (optional safety)
+                                rm -rf .scannerwork
 
-                        # Run sonar-scanner with caching enabled
-                        /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/python-sonar-scanner1/bin/sonar-scanner \
-                          -Dsonar.cache.enabled=true \
-                          -Dsonar.log.level=INFO \
-                          -Dsonar.verbose=false \
-                          -X || true
-                    '''
+                                # Run sonar-scanner with caching enabled
+                                /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/python-sonar-scanner1/bin/sonar-scanner \
+                                -Dsonar.cache.enabled=true \
+                                -Dsonar.log.level=INFO \
+                                -Dsonar.verbose=false \
+                                -X || true
+                            '''
+                        }
+                    }
                 }
             }
         }
-    }
-}
         stage("Quality Gate"){
             steps {
                 script {
