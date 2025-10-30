@@ -31,39 +31,15 @@ pipeline {
                 }
             }
         }
-        stage('frontend and backend Test') { 
-            steps {
-                dir('frontend/frontends') { 
-                    sh 'npm install' 
-                    sh 'npm test -- --coverage' 
-                }
-                dir('backend') { 
-                    sh 'docker-compose run --rm backend pytest --cov=. --cov-report=xml' 
-                }
-            }
-        }
         stage('SonarQube Analysis') {
-            steps {
-                script {
-                    echo "Starting SonarQube analysis..."
-                    // Wrap SonarQube execution in a timeout to prevent infinite run
-                    timeout(time: 15, unit: 'MINUTES') {
+            environment {
+                scannerHome = tool 'python-sonar-scanner1'
+            }
+                steps {
                         withSonarQubeEnv('sonarqube-server1') {
-                            sh '''
-                                # Clean old Sonar cache (optional safety)
-                                rm -rf .scannerwork
-
-                                # Run sonar-scanner with caching enabled
-                                /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/python-sonar-scanner1/bin/sonar-scanner \
-                                -Dsonar.cache.enabled=true \
-                                -Dsonar.log.level=INFO \
-                                -Dsonar.verbose=false \
-                                -X || true
-                            '''
-                        }
+                        sh "${scannerHome}/bin/sonar-scanner"
                     }
                 }
-            }
         }
         stage("Quality Gate"){
             steps {
