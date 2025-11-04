@@ -40,6 +40,15 @@ def create_app():
         )
         db.commit()
         return jsonify({"status": "User added"}), 201
+    
+    #@app.route('/api/users/<int:user_id>', methods=['DELETE'])
+    #def delete_user(user_id):
+     #   cursor = db.cursor()
+     #   cursor.execute("DELETE FROM users WHERE id = %s", (user_id,))
+      #  db.commit()
+       # if cursor.rowcount == 0:
+        #    return jsonify({"error": "User not found"}), 404
+       # return jsonify({"status": "User deleted"}), 200
 
     return app
 
